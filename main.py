@@ -110,6 +110,13 @@ async def send_random_value(callback: types.CallbackQuery):
     await callback.message.answer(data['desc'][prediction[2]])
     await callback.answer()
 
+@dp.message(F.text, Command("start"))
+async def any_message(message: Message):
+    await message.answer(
+        "Привет! Я бот, который может распознать породу кота по фото! Просто отправь мне фото своего кота и я отгадаю его породу, а также могу вывести тебе небольшую сводку по основным особенностям этой породы", 
+        parse_mode=ParseMode.HTML
+    )
+
 async def main():
     await dp.start_polling(bot)
 
