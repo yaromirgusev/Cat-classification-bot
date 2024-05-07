@@ -5,10 +5,11 @@ import torch
 import asyncio
 import logging
 from aiogram import Bot, Dispatcher, types
-from aiogram.dispatcher.filters import Command
+from aiogram.filters.command import Command
 import ttoken
-print(ttoken.token)
-
+from aiogram import F
+from aiogram.types import Message
+from aiogram.enums import ParseMode
 
 device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 names = ['Абиссинская кошка',
@@ -74,7 +75,6 @@ names = ['Абиссинская кошка',
  'Эльф',
  'Японский бобтейл']
 
-
 def predict_image(image_path, model, device):
     image = Image.open(image_path)
     transform = transforms.Compose([
@@ -92,11 +92,20 @@ def predict_image(image_path, model, device):
 
     return prediction
 
-
 model2 = torch.load('complete_model2_00001.pth', map_location=device)
 model2.eval()
 
-image_path = 'test.jpg'
-prediction = predict_image(image_path, model2, device)
-print(f'Predicted class index: {prediction}')
-print(names[int(prediction)])
+# image_path = 'test.jpg'
+# prediction = predict_image(image_path, model2, device)
+# print(f'Predicted class index: {prediction}')
+# print(names[int(prediction)])
+
+logging.basicConfig(level=logging.INFO)
+bot = Bot(token=ttoken.token)
+dp = Dispatcher()
+
+async def main():
+    await dp.start_polling()
+
+if __name__ == "__main__":
+    asyncio.run(main())
