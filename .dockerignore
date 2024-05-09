@@ -3,4 +3,5 @@ Cats_lapkins
 .idea
 __pycache__
 complete_model1.pth
-complete_model2_00001.pth
+cats_models.ipynb
+torch-2.0.0+cpu.cxx11.abi-cp39-cp39-linux_x86_64.whl

@@ -1,20 +1,13 @@
+FROM python:3.9-slim
 
-FROM nvidia/cuda:12.4.1-cudnn-devel-rockylinux8
+WORKDIR /src
 
-RUN apt-get update && \
-    apt-get install -y \
-        git \
-        python3-pip \
-        python3-dev \
-        python3-opencv \
-        libglib2.0-0
+ENV PYTHONWRITEBYTECODE=1
+ENV PYTHONUNBUFFERED=1
 
-COPY requirements.txt requirements.txt
+COPY requirements.txt .
+RUN pip install torch torchvision --index-url https://download.pytorch.org/whl/cpu
+RUN pip install --upgrade -r requirements.txt
 
-RUN python3 -m pip install -r requirements.txt
+COPY . .
 
-RUN pip3 install torch torchvision -f https://download.pytorch.org/whl/cu111/torch_stable.html
-
-WORKDIR /app
-
-ENTRYPOINT [ "python3" ]

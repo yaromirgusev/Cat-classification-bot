@@ -1,7 +1,7 @@
 from PIL import Image
 import torchvision.transforms as transforms
-import timm
 import torch
+import timm
 import asyncio
 import logging
 from aiogram import Bot, Dispatcher, types
@@ -204,7 +204,7 @@ listt = [(0,
 connection = None
 try:
     connection = psycopg2.connect(
-        host = ttoken.host,
+        host = 'db',
         database = ttoken.db_name,
         user = ttoken.user,
         password =  ttoken.password)
@@ -289,7 +289,7 @@ async def download_photo(message: types.Message, bot: Bot):
         prediction = predict_image(destination, model2, device)
         try:
             connection = psycopg2.connect(
-                host = ttoken.host,
+                host = 'db',
                 database = ttoken.db_name,
                 user = ttoken.user,
                 password =  ttoken.password)
@@ -307,9 +307,7 @@ async def download_photo(message: types.Message, bot: Bot):
         finally:
             if connection:
                 connection.close()
-                print('got names for preds')
 
-        print(results)
         top1 = results[0][0]
         top2 = results[1][0]
         top3 = results[2][0]

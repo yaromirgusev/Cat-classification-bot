@@ -1,4 +1,4 @@
 Pillow==9.5.0
-timm==0.5.4
 aiogram==3.6.0
 psycopg2-binary==2.9.9
+timm==0.9.16
