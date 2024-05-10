@@ -37,7 +37,7 @@ docker-compose up
 ```
 5. Все работает!
 
-## Примеры работы 🖼️
+## Пример работы 🖼️
 <p align="center">
 <img src="https://github.com/yaromirgusev/Cat-classification-bot/assets/131535027/6e5ffa35-ac7a-43a1-850c-ae6f970ea5c9" width="600">
 </p>
