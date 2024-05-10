@@ -38,7 +38,6 @@ docker-compose up
 5. Все работает!
 
 ## Примеры работы 🖼️
-
 <p align="center">
-      <img src="https://i.ibb.co/P9jkZ4v/image.png" alt="Project Logo">
+<img src="https://github.com/yaromirgusev/Cat-classification-bot/assets/131535027/6e5ffa35-ac7a-43a1-850c-ae6f970ea5c9" width="600">
 </p>
