@@ -32,7 +32,6 @@ db_name = 'postgres'
 ```bash
 docker-compose build
 ```
-а затем
 ```bash
 docker-compose up
 ```
