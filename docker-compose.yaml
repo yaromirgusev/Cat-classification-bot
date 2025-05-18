@@ -4,6 +4,8 @@ services:
   bot:
     container_name: my_project_bot
     build: ./
+    environment:
+      - DOCKER=true
     depends_on:
       - db
     command: ["sh", "-c", "sleep 10 && python main.py"]
@@ -16,6 +18,7 @@ services:
       - POSTGRES_DB=postgres
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
+      - DOCKER=true
     ports:
       - "5432:5432"
     restart: always

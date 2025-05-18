@@ -20,7 +20,7 @@ async def list_user_cats(message: types.Message):
     user_id = message.from_user.id
     try:
         connection = psycopg2.connect(
-            host='db',
+            host=ttoken.host,
             database=ttoken.db_name,
             user=ttoken.user,
             password=ttoken.password

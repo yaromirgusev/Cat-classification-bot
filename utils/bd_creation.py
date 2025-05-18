@@ -7,7 +7,7 @@ def bd_creation():
     connection = None
     try:
         connection = psycopg2.connect(
-            host = 'db',
+            host = ttoken.host,
             database = ttoken.db_name,
             user = ttoken.user,
             password =  ttoken.password)

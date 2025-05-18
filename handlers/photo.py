@@ -24,7 +24,7 @@ async def download_photo(message: types.Message):
         prediction = predict_image(destination, model2, device)
         try:
             connection = psycopg2.connect(
-                host='db',
+                host=ttoken.host,
                 database=ttoken.db_name,
                 user=ttoken.user,
                 password=ttoken.password
@@ -37,7 +37,7 @@ async def download_photo(message: types.Message):
 
         except Exception as e:
             await message.answer("Ошибка при получении информации из БД.")
-            logging.error("DB error:", e)
+            logging.error("DB error: %s", e)
             return
         finally:
             if connection:

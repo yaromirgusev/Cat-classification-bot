@@ -5,7 +5,7 @@ import logging
 def log_user_if_new(user):
     try:
         connection = psycopg2.connect(
-            host='db',
+            host=ttoken.host,
             database=ttoken.db_name,
             user=ttoken.user,
             password=ttoken.password
@@ -30,7 +30,7 @@ def log_user_if_new(user):
             else:
                 logging.info(f"[existing user] @{user.username} - {user.first_name}")
     except Exception as e:
-        logging.error("DB Error:", e)
+        logging.error("DB Error: %s", e)
     finally:
         if connection:
             connection.close()
@@ -38,7 +38,7 @@ def log_user_if_new(user):
 def save_user_breed(user_id, breed_name, breed_desc):
     try:
         connection = psycopg2.connect(
-            host='db',
+            host=ttoken.host,
             database=ttoken.db_name,
             user=ttoken.user,
             password=ttoken.password
