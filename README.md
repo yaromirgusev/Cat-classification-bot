@@ -25,7 +25,7 @@ Cat classification bot - <a href="https://t.me/CatBreedDetectorBot">Telegram-б�
 1. Создайте своего бота в <a href="https://t.me/BotFather">BotFather</a>.
 2. Клонируйте репозиторий, после чего создайте директории `config` файл `ttoken.py`, в который нужно ввести 
 ```python
-token = YOUR_TOKEN #токен вашего бота
+token = YOUR_TOKEN # токен вашего бота
 user = 'postgres'
 password = 'postgres'
 db_name = 'postgres'
